@@ -8,7 +8,7 @@ function OnTextChanged() {
 }
 
 function Generate(id, in_n, out_n) {
-    id = id.replace(" ", "_");
+    id = id.replaceAll(" ", "_");
     let markup = `<div id="${id}_container">`;
     markup += `<label id="${id}_label">`;
     
