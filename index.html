@@ -28,6 +28,7 @@
     </div>
     <pre><code class="language-javascript">
         function GetInOuts(id, in_n, out_n) {
+            id = id.replaceAll(" ", "_");
             let inputs = [];
             for (let i = 0; i < in_n; i++) {
                 inputs.push(document.body.querySelector(`#${id}_input${i + 1}`));
