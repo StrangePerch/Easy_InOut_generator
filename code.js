@@ -14,7 +14,7 @@ function Generate(id, in_n, out_n) {
     
     markup += `/br ${id} ( `;
     for (let i = 0; i < in_n; i++) {
-        markup += `<input type="text" onchange="OnTextChanged()" id="${id}_input${i + 1}" style="width: 50px">,`;
+        markup += `value${i + 1}: <input type="text" onchange="OnTextChanged()" id="${id}_input${i + 1}" style="width: 50px">,`;
     }
     markup += " )/br";
     markup += `</label>`;
