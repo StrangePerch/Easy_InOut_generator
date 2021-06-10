@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="prism.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div>
+    <label>
+        Generate (
+        id name: 
+        <input type="text" onchange="OnTextChanged()" id="id" style="width: 50px">,
+        amount of (inputs: 
+        <input type="text" onchange="OnTextChanged()" id="inputs" style="width: 50px">,
+        outputs: 
+        <input type="text" onchange="OnTextChanged()" id="outputs" style="width: 50px">) )
+    </label>
+    <div>Result:</div>
+    <hr>
+    <pre><code class="language-html" id="result">
+    </code></pre>
+    <hr>
+    <div>
+        Use the function below to get inputs and outputs.
+    </div>
+    <pre><code class="language-javascript">
+        function GetInOuts(id, in_n, out_n) {
+            let inputs = [];
+            for (let i = 0; i < in_n; i++) {
+                inputs.push(document.body.querySelector(`#${id}_input${i + 1}`));
+            }
+    
+            let outputs = [];
+            for (let i = 0; i < out_n; i++) {
+                outputs.push(document.body.querySelector(`#${id}_output${i + 1}`));
+            }
+            return {inputs: inputs, outputs: outputs};
+        }
+    </code></pre>
+    
+</div>
+    <script type="text/javascript" src="code.js"></script>
+    <script src="prism.js"></script>
+</body>
+</html>
