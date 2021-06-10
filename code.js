@@ -14,15 +14,19 @@ function Generate(id, in_n, out_n) {
     
     markup += `/br ${id} ( `;
     for (let i = 0; i < in_n; i++) {
-        markup += `value${i + 1}: <input type="text" onchange="OnTextChanged()" id="${id_no_spaces}_input${i + 1}" style="width: 50px">,`;
+        markup += `value${i + 1}: <input type="text" onchange="OnTextChanged()" id="${id_no_spaces}_input${i + 1}" style="width: 50px">`;
+        if(i !== in_n - 1) markup += ", ";
     }
     markup += " )/br";
     markup += `</label>`;
-    markup += `<div id="${id_no_spaces}_results">`;
-    for (let i = 0; i < out_n; i++) {
-        markup += `Result${i + 1}: <span id="${id_no_spaces}_output${i + 1}"></span>, `;
+    if(out_n > 0) {
+        markup += `<div id="${id_no_spaces}_results">`;
+        for (let i = 0; i < out_n; i++) {
+            markup += `Result${i + 1}: <span id="${id_no_spaces}_output${i + 1}"></span>`;
+            if(i !== out_n - 1) markup += ", ";
+        }
+        markup += "</div>";
     }
-    markup += "</div>";
     markup += "</div>";
     markup = markup.replaceAll(">", "&gt");
     markup = markup.replaceAll("<", "<br/>&lt");
@@ -37,6 +41,8 @@ function GetInOuts(id, in_n, out_n) {
     for (let i = 0; i < in_n; i++) {
         inputs.push(document.body.querySelector(`#${id}_input${i + 1}`));
     }
+    
+    if(out_n === 0) return inputs;
     
     let outputs = [];
     for (let i = 0; i < out_n; i++) {

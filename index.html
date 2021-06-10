@@ -33,6 +33,8 @@
             for (let i = 0; i < in_n; i++) {
                 inputs.push(document.body.querySelector(`#${id}_input${i + 1}`));
             }
+        
+            if(out_n === 0) return inputs;
     
             let outputs = [];
             for (let i = 0; i < out_n; i++) {
