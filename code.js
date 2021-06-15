@@ -28,8 +28,8 @@ function Generate(id, in_n, out_n) {
         markup += "</div>";
     }
     markup += "</div>";
-    markup = markup.replaceAll(">", "&gt");
-    markup = markup.replaceAll("<", "<br/>&lt");
+    markup = markup.replaceAll("<", "&lt");
+    markup = markup.replaceAll(">", "&gt<br/>");
     markup = markup.replaceAll("/br", "<br/>");
     return markup;
 }
